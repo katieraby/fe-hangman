@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 class App extends React.Component {
   state = {
     wordOptions: [
-      'jellyfish',
-      'peanut',
-      'tomorrow',
-      'platypus',
-      'extradite',
-      'fluff',
-      'discombobulated',
-      'react',
-      'function',
-      'hangman'
+      "jellyfish",
+      "peanut",
+      "tomorrow",
+      "platypus",
+      "extradite",
+      "fluff",
+      "discombobulated",
+      "react",
+      "function",
+      "hangman"
     ],
-    selectedWord: '',
+    selectedWord: "",
     splitWord: [],
     guessedWord: [],
-    guessedLetter: '',
+    guessedLetter: "",
     incorrectGuesses: 0
   };
 
@@ -46,11 +45,10 @@ class App extends React.Component {
 
   startGame = () => {
     const randomIndex = Math.floor(Math.random() * 10);
-    console.log(randomIndex);
     this.setState(currentState => {
       const selectedWord = currentState.wordOptions[randomIndex];
-      const splitWord = selectedWord.split('');
-      const guessedWord = selectedWord.replace(/\w/g, '_').split('');
+      const splitWord = selectedWord.split("");
+      const guessedWord = selectedWord.replace(/\w/g, "_").split("");
       return {
         selectedWord,
         splitWord,
@@ -71,7 +69,7 @@ function Hangman(props) {
 
 function Word(props) {
   const newGuessedWord = props.guessedWord.map(letter => {
-    return letter + ' ';
+    return letter + " ";
   });
   return <p>{newGuessedWord}</p>;
 }
